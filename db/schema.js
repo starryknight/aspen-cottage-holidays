@@ -14,7 +14,6 @@ const UserSchema = new Schema({
   cabins: [cabinSchema]
 });
 
-
 const CabinSchema = new Schema({
   limit: Number,
   address: String,
