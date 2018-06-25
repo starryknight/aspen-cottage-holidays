@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const UserSchema = newSchema({
+const UserSchema = new Schema({
   userName: {
     type: String
   },
@@ -15,7 +15,7 @@ const UserSchema = newSchema({
 });
 
 
-const CabinSchema = newSchema({
+const CabinSchema = new Schema({
   limit: Number,
   address: String,
   city: String,
@@ -26,10 +26,20 @@ const CabinSchema = newSchema({
   activities: [activitySchema]
 });
 
-const ActivitySchema = newSchema({
+const ActivitySchema = new Schema({
     name:String,
     requirements:String,
     availability: Date,
     location: String,
     age: Number
   });
+
+  const UserModel = mongoose.model('User', UserSchema)
+  const CabinModel = mongoose.model('Cabin', CabinSchema)
+  const ActivityModel = mongoose.model('Activity', ActivitySchema)
+
+  module.exports = {
+    UserModel,
+    CabinModel,
+    ActivityModel
+  }
