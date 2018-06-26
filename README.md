@@ -28,7 +28,8 @@ https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
 ```
 
 ## Technologies
-
+React
+Express
 
 ## Trello
 
