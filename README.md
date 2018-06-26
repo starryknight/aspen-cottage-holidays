@@ -13,10 +13,38 @@ The live website for the project is available via the following link:-
 ```
 https://protected-meadow-64552.herokuapp.com/
 
-
+```
 ## wireframe
 The wireframe for the project is available via the following link:-
 ```
 https://www.figma.com/file/eEBPVC9jDMWr7wbqO6gHNHMD/Untitled
 
 ```
+## ERD
+The ERD for the project is available via the following link:-
+```
+https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
+
+```
+
+## Technologies
+
+
+## Trello
+
+Please find the user stories via the following link:-
+```
+https://trello.com/b/7s5pfW5u/aspen-cottage-holidays
+
+```
+## Version 2
+
+
+
+## References
+
+https://dashboard.heroku.com/
+
+
+
+
