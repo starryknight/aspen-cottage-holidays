@@ -11,7 +11,7 @@ class LogInPage extends Component {
   state = {
     userName:"",
       password: "",
-      Arrival: "",
+      Arrival:null,
       picture: "",
   }
 
