@@ -4,20 +4,26 @@ import axios from 'axios'
 
 class LogInPage extends Component {
     state = {
-        
+      userName: "",
+      password: ""  
     }
     render() {
         return (
             <div>
                 <form action="">
                 <input type="text"
+                placeholder = "Name"
+                name="userName"
                 
                 />
+    
                 <br/>
-                
-                <br/>
-                <input type="text"
+                <input type="password"
+                placeholder = "password"
+                name="userName"
                 />
+                <br/>
+                <button type="submit">Submit</button>
                 
                 </form>
             </div>
