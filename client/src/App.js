@@ -31,7 +31,7 @@ class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            {/* <Route exact path="/login" render={LogInPageWrapper} /> */}
+            <Route exact path="/login" render={LogInPageWrapper} />
           </Switch>
         </div>
       </Router>
