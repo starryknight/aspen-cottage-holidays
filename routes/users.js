@@ -1,9 +1,30 @@
-var express = require('express');
-var router = express.Router();
+et express = require('express')
+let router = express.Router()
+const { UserModel } = require('../db/schema')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', function (req, res) {
+  UserModel.find().then((users) => {
+    res.send({
+      users
+    })
+  })
+})
 
-module.exports = router;
+
+
+router.get('/:id', async (req, res) => {
+  const user = await UserModel.findById(req.params.id)
+  res.send({
+    user
+  })
+})
+
+router.post('/', (req, res) => {
+  const newUser = new UserModel(req.body)
+  newUser.save().then((user) => {
+    res.send(user)
+  })
+})
+
+module.exports = router
