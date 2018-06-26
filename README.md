@@ -9,6 +9,14 @@ A holiday goer is able to add the holdicay home they want to stay at and select 
 
 
 ## Heroku Site Link
-
+The live website for the project is available via the following link:-
+```
 https://protected-meadow-64552.herokuapp.com/
 
+
+## wireframe
+The wireframe for the project is available via the following link:-
+```
+https://www.figma.com/file/eEBPVC9jDMWr7wbqO6gHNHMD/Untitled
+
+```
