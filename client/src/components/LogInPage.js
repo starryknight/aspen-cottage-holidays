@@ -13,6 +13,11 @@ class LogInPage extends Component {
                 <input type="text"
                 
                 />
+                <br/>
+                
+                <br/>
+                <input type="text"
+                />
                 
                 </form>
             </div>
