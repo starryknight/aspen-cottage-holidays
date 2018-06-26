@@ -31,5 +31,4 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', usersRouter)
 
-
 module.exports = app

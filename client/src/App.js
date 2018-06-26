@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import axios from 'axios'
 import HomePage from './components/HomePage'
+import UserPage from './components/UserPage'
 import LogInPage from './components/LogInPage'
 
 class App extends Component {
@@ -10,7 +11,9 @@ class App extends Component {
   }
   componentDidMount () {
     axios.get('/api/users').then((res) => {
+      console.log(res.data)
       this.setState({ users: res.data.users })
+      console.log('this should be the users data', res.data.users)
     }).catch((err) => {
       console.error(err)
     })
@@ -32,6 +35,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" render={LogInPageWrapper} />
+            <Route exact path="/users" component={UserPage} />
           </Switch>
         </div>
       </Router>

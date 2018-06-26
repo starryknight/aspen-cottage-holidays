@@ -54,9 +54,26 @@ class LogInPage extends Component {
             value={this.state.userName}
             onChange={this.handleChange}
           />
+           <br/>
           <input
             placeholder="Password"
             type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+           <br/>
+          <input
+            placeholder="picture"
+            type="text"
+            name="picture"
+            value={this.state.picture}
+            onChange={this.handleChange}
+          />
+          <br/>
+          <input
+            placeholder="a"
+            type="date"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
