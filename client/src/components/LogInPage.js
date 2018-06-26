@@ -72,10 +72,9 @@ class LogInPage extends Component {
           />
           <br/>
           <input
-            placeholder="a"
             type="date"
             name="password"
-            value={this.state.password}
+            value={this.state.Arrival}
             onChange={this.handleChange}
           />
 
