@@ -25,8 +25,8 @@ const fishing = new ActivityModel({
   });
 
   const stanley = new UserModel({
-    userName: "Stanley Kimani",
-    password: "******",
+    userName: "stanley",
+    password: "kimani",
     Arrival: 07/12/2018,
     picture: "https://www.gannett-cdn.com/-mm-/acfef7d74e1e9805d997dc1aa942ae1f2b4e34b9/c=25-0-299-365&r=537&c=0-0-534-712/local/-/media/2016/02/10/USATODAY/USATODAY/635907076024739362-Kim.0001.jpg",
     cabins: [regalMary]
@@ -36,13 +36,3 @@ const fishing = new ActivityModel({
   .then(() => stanley.save())
   .then(() => console.log('Successful Save'))
   .then(() => mongoose.connection.close())
-
-// CabinModel.remove({})
-//   .then(() => regalMary.save())
-//   .then(() => console.log('Successful Save'))
-//   .then(() => mongoose.connection.close())
-
-//   ActivityModel.remove({})
-//   .then(() => fishing.save())
-//   .then(() => console.log('Successful Save'))
-//   .then(() => mongoose.connection.close())

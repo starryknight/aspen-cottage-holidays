@@ -9,18 +9,15 @@ import axios from 'axios'
 
 class LogInPage extends Component {
   state = {
-    userName: '',
-    password: ''
+    userName:"",
+      password: "",
+      Arrival: "",
+      picture: "",
   }
 
   handleChange = (event) => {
     const inputName = event.target.name
     const userInput = event.target.value
-
-    // alt way of setting state
-    // this.setState({
-    //   [ inputName ]: userInput
-    // })
 
     const newState = { ...this.state }
     newState[ inputName ] = userInput
