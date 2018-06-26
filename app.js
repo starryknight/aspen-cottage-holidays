@@ -1,31 +1,35 @@
-require("dotenv").config();
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
+require('dotenv').config()
+const express = require('express')
+const logger = require('morgan')
+const mongoose = require('mongoose')
 
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI); 
+mongoose.connect(process.env.MONGODB_URI) 
 
-const connection = mongoose.connection;
-
+const connection = mongoose.connection
 connection.on('connected', () => {
-  console.log('Mongoose Connected Successfully');
-});
+  console.log('Mongoose Connected Successfully')
+})
+
 // If the connection throws an error
 connection.on('error', (err) => {
-  console.log('Mongoose default connection error: ' + err);
-});
+  console.log('Mongoose default connection error: ' + err)
+})
 
-var app = express();
+let usersRouter = require('./routes/users')
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+let app = express()
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-app.use(express.static(__dirname + '/client/build/'));
 
-app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/client/build/index.html')
-  })
+app.use(express.static(__dirname + '/client/build/'))
 
-module.exports = app;
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/client/build/index.html')
+})
+
+app.use('/api/users', usersRouter)
+
+
+module.exports = app
