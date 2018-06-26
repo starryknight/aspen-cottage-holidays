@@ -22,8 +22,7 @@ class App extends Component {
     )
     return (
       <div className="App">
-      <img src="https://www.brandcrowd.com/gallery/brands/pictures/picture14299092496285.png" alt=""/>
-       <h1>Aspen Cottage Holidays</h1>
+      
        <Router>
         <div>
           <div>
@@ -32,8 +31,7 @@ class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/login" render={LogInPageWrapper} />
-            
+            {/* <Route exact path="/login" render={LogInPageWrapper} /> */}
           </Switch>
         </div>
       </Router>
