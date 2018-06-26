@@ -14,6 +14,9 @@ class LogInPage extends Component {
                 <input type="text"
                 placeholder = "Name"
                 name="userName"
+                value={this.state.userName}
+            onChange={this.handleChange}
+
                 />
     
                 <br/>
