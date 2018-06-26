@@ -14,7 +14,6 @@ class LogInPage extends Component {
                 <input type="text"
                 placeholder = "Name"
                 name="userName"
-                
                 />
     
                 <br/>
