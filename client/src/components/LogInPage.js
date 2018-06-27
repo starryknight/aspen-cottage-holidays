@@ -36,7 +36,7 @@ class LogInPage extends Component {
         <h1>Please Select A User</h1>
         {this.props.users.map((user) => {
           return (
-            <Link key={user._id} to={`/user/${user._id}`}>{user.userName}</Link>
+            <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link>
           )
         })}
 
