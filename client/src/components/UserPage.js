@@ -8,7 +8,7 @@ class UserPage extends Component {
     componentDidMount () {
         if (this.props.match.params) {
             const userId = this.props.match.params.userId
-            console.log(userId)
+            // console.log(userId)
             axios
                 .get(`/api/users/${userId}`)
                 .then(res => {
@@ -18,12 +18,16 @@ class UserPage extends Component {
     }
       
     render() {
-        const user = this.state.user
-        console.log('user', user.user.userName)
+        console.log(this.state.user)
+        const user = this.state.user ||{}
+        const userName = user.userName || ''
+        const picture = user.picture || ''
+        console.log('userName', userName)
         return (
             <div>
-                <p>hello user</p>
-                {user.userName}
+                <img src="{picture}" alt=""/>
+                <p>User Name: <span> {userName}</span> </p>
+                
             </div>
         );
     }

@@ -6,17 +6,13 @@ const { UserModel } = require('../db/schema')
 
 router.get('/', function (req, res) {
   UserModel.find().then((users) => {
-    res.send({
-      users
-    })
+    res.send(users)
   })
 })
 //once you select user get id and send user
 router.get('/:id', async (req, res) => {
   const user = await UserModel.findById(req.params.id)
-  res.send({
-    user
-  })
+  res.send(user)
 })
 //creating the new user
 router.post('/', (req, res) => {
