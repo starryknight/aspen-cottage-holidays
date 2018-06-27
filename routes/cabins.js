@@ -6,8 +6,8 @@ const { UserModel, CabinModel } = require('../db/schema')
 router.post('/', function (req, res) {
 
   UserModel.findById(req.params.userId).then((user) => {
-    const newIdea = new CabinModel(req.body)
-    user.ideas.push(newIdea)
+    const newCabin = new CabinModel(req.body)
+    user.cabins.push(newCabin)
     return user.save()
   }).then(savedUser => {
     res.send({
@@ -19,7 +19,7 @@ router.post('/', function (req, res) {
 /* Delete an Idea */
 // router.delete('/:id', (req, res) => {
 //   UserModel.findById(req.params.userId).then((user) => {
-//     user.ideas.id(req.params.id).remove()
+//     user.cabins.id(req.params.id).remove()
 //     return user.save()
 //   }).then(savedUser => {
 //     res.send({
@@ -34,7 +34,7 @@ router.patch('/:id', async (req, res) => {
   const ideaId = req.params.id
 
   // edit the idea from the id
-  const ideaToEdit = user.ideas.id(ideaId)
+  const ideaToEdit = user.cabins.id(ideaId)
   ideaToEdit.title = req.body.title
   ideaToEdit.description = req.body.description
 
@@ -48,7 +48,7 @@ router.patch('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   const user = await UserModel.findById(req.params.userId)
-  user.ideas.id(req.params.id).remove()
+  user.cabins.id(req.params.id).remove()
   const savedUser = await user.save()
   res.send({
     user: savedUser
