@@ -38,7 +38,5 @@ const CabinModel = mongoose.model("Cabin", CabinSchema);
 const ActivityModel = mongoose.model("Activity", ActivitySchema);
 
 module.exports = {
-  UserModel,
-  CabinModel,
-  ActivityModel
+  UserModel, CabinModel, ActivityModel
 };

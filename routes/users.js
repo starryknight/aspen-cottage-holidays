@@ -11,14 +11,14 @@ router.get('/', function (req, res) {
     })
   })
 })
-
+//once you select user get id and send user
 router.get('/:id', async (req, res) => {
   const user = await UserModel.findById(req.params.id)
   res.send({
     user
   })
 })
-
+//creating the new user
 router.post('/', (req, res) => {
   const newUser = new UserModel(req.body)
   newUser.save().then((user) => {
