@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
 class UserPage extends Component {
+    state = {
+        users: {
+            cabins: []
+        }
+    }
     render() {
+        
         return (
             <div>
-                <h1>Hello</h1>
+               <h1>Hello user</h1> 
             </div>
         );
     }

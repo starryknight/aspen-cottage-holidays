@@ -16,7 +16,7 @@ connection.on('error', (err) => {
 })
 
 let usersRouter = require('./routes/users')
-
+let cabinRouter = require('./routes/cabins')
 let app = express()
 app.use(logger('dev'))
 app.use(express.json())
@@ -30,5 +30,5 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/users', usersRouter)
-
+app.use('/api/users/:userId/cabin', cabinRouter)
 module.exports = app

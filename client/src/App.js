@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Link, Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import axios from 'axios'
 import HomePage from './components/HomePage'
-import UserPage from './components/UserPage'
+import AllUsersPage from './components/AllUsersPage'
 import LogInPage from './components/LogInPage'
-
+import UserPage from './components/UserPage'
 class App extends Component {
   state = {
     users: []
@@ -23,7 +23,11 @@ class App extends Component {
     const LogInPageWrapper = (props) => (
       <LogInPage users={this.state.users} {...props} />
     )
-    
+
+    const UsersPageWrapper = (props) => (
+      <AllUsersPage users={this.state.users} {...props} />
+    )
+
     return (
       <div className="App">
       
@@ -36,7 +40,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" render={LogInPageWrapper} />
-            <Route exact path="/users" render={UserPage} />
+            <Route exact path="/users" render={UsersPageWrapper} />
+            <Route  path="/users/:userId" component={UserPage} />
+
           </Switch>
         </div>
       </Router>

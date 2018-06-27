@@ -2,16 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-// We'll need to build a link to the idea board for each user in the db
-
-
-// We'll also need the ability to create a user
-
 class LogInPage extends Component {
   state = {
     userName:"",
       password: "",
-      Arrival:null,
+    //   Arrival:null,
       picture: "",
   }
 
@@ -71,12 +66,12 @@ class LogInPage extends Component {
             onChange={this.handleChange}
           />
           <br/>
-          <input
+          {/* <input
             type="date"
             name="password"
             value={this.state.Arrival}
             onChange={this.handleChange}
-          />
+          /> */}
 
           <button type="submit">Submit</button>
         </form>
