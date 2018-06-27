@@ -22,11 +22,13 @@ class UserPage extends Component {
         const user = this.state.user ||{}
         const userName = user.userName || ''
         const picture = user.picture || ''
-        console.log('userName', userName)
+        console.log('user', user)
+        console.log('picture', picture)
         return (
             <div>
-                <img src="{picture}" alt=""/>
-                <p>User Name: <span> {userName}</span> </p>
+                <img src={picture} alt="picture"/>
+                <p>User Name: <span> {userName}</span>.</p>
+                <button>View Cabins</button>
                 
             </div>
         );
