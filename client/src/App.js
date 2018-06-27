@@ -11,8 +11,8 @@ class App extends Component {
   componentDidMount () {
     axios.get('/api/users').then((res) => {
       // console.log(res.data)
-      this.setState({ users: res.data.users })
-      // console.log('this should be the users data', res.data.users)
+      this.setState({ users: res.data })
+      console.log('this should be the res data', res.data)
     }).catch((err) => {
       console.error(err)
     })

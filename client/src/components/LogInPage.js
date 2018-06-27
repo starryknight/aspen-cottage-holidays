@@ -31,14 +31,21 @@ class LogInPage extends Component {
   }
 
   render () {
+      const users = this.props.users ||[]
+      console.log(this.props)
+      const listOfUsers = users.map((user) => {
+        return (
+          <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link> 
+        )})
     return (
       <div>
         <h1>Please Select A User</h1>
-        {this.props.users.map((user) => {
+        {/* {this.props.users.map((user) => {
           return (
-            <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link>
+            <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link> 
           )
-        })}
+        })} */}
+        {listOfUsers}
 
         <h3>Create a User</h3>
         <form onSubmit={this.handleSubmit}>
