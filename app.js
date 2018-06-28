@@ -32,6 +32,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', usersRouter)
 app.use('/api/users/:userId/cabin', cabinRouter)
-app.use('/api/users/:userId/cabin/:cabinId/activity', activityRouter)
+app.use('/api/users/:userId/cabins/:cabinId/activity', activityRouter)
 
 module.exports = app

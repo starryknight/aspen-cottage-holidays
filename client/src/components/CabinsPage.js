@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -19,9 +20,10 @@ class CabinPage extends Component {
     }
     render() {
         const user = this.state.user ||{}
+        const cabinId= 9; 
          if (user.cabins) {
         var listOfCabins = user.cabins.map((cabin)=>{
-            return <li key={user._id}>{cabin.state}<img src={cabin.picture}/><a href={`cabins/activity`}><button>Activities</button></a></li>
+            return <li key={user._id}>{cabin.state}<img src={cabin.picture}/><a href={`cabins/${cabin._id}/activity`}><button>Activities</button></a></li>
             
         })
         }
@@ -30,7 +32,7 @@ class CabinPage extends Component {
                 <p>Cabin Page</p>
                 {this.state.user.cabins? <div>{listOfCabins}</div>: 
                 null}
-                
+                <button href="">Add New Cabin</button>
             </div>
         );
     }

@@ -40,7 +40,7 @@ class App extends Component {
             <Route exact path="/login" render={LogInPageWrapper} />
             <Route  exact path="/users/:userId" component={UserPage} />
             <Route  exact path="/users/:userId/cabins" component={CabinsPage} />
-            <Route  exact path="/users/:userId/cabins/activity" component={ActivityPage} />
+            <Route  exact path="/users/:userId/cabins/:cabinId/activity" component={ActivityPage} />
           
           </Switch>
         </div>
