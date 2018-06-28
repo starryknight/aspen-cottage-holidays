@@ -17,7 +17,6 @@ class CabinPage extends Component {
   }
   render() {
     const user = this.state.user || {};
-    const cabinId = 9;
     if (user.cabins) {
       var listOfCabins = user.cabins.map(cabin => {
         return (
@@ -25,6 +24,7 @@ class CabinPage extends Component {
             {cabin.state}
             <img src={cabin.picture} />
             <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
+            <button >Delete</button>
           </li>
         );
       });
@@ -33,40 +33,7 @@ class CabinPage extends Component {
       <div>
         <p>Cabin Page</p>
         {this.state.user.cabins ? <div>{listOfCabins}</div> : null}
-        <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="User Name"
-            type="text"
-            name="userName"
-            value={this.state.userName}
-            onChange={this.handleChange}
-          />
-          <br />
-          <input
-            placeholder="Password"
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <br />
-          <input
-            placeholder="picture"
-            type="text"
-            name="picture"
-            value={this.state.picture}
-            onChange={this.handleChange}
-          />
-          <br />
-          {/* <input
-            type="date"
-            name="password"
-            value={this.state.Arrival}
-            onChange={this.handleChange}
-          /> */}
-
-          <button type="submit">Submit</button>
-        </form>
+        <Link to={`cabins/new`}>New Cabin</Link>
       </div>
     );
   }
