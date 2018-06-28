@@ -15,7 +15,16 @@ class CabinPage extends Component {
       });
     }
   }
-  render() {
+  handleDelete = (cabinId) => {
+    if (this.props.match.params) {
+        const userId = this.props.match.params.userId;
+        console.log(cabinId)
+        axios.delete(`/api/users/${userId}/cabins/${cabinId}`).then(res => {
+            this.setState({ user: res.data.user });
+        });
+    }
+}
+  render(){
     const user = this.state.user || {};
     if (user.cabins) {
       var listOfCabins = user.cabins.map(cabin => {
@@ -24,9 +33,9 @@ class CabinPage extends Component {
             {cabin.state}
             <img src={cabin.picture} />
             <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
-            <button >Delete</button>
+            <button onClick={() => this.handleDelete(cabin._id)}>Delete</button>
           </li>
-        );
+      );
       });
     }
     return (
@@ -37,6 +46,7 @@ class CabinPage extends Component {
       </div>
     );
   }
+  
 }
 
 export default CabinPage;
