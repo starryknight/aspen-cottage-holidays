@@ -19,16 +19,16 @@ class ActivityPage extends Component {
     }
     render() {
         const user = this.state.user ||{}
-         if (user.cabins) {
-        var listOfActivities = user.cabins.activities.map((activity)=>{
-            return <li>{activity.name}</li>     
-        })
-        }
+        //  if (user.cabins) {
+        // var listOfActivities = user.cabins.activities.map((activity)=>{
+        //     return <li>{activity.name}</li>     
+        // })
+        // }
         return (
             <div>
                 <p>Activity Page</p>
-                {this.state.user.cabins.activities? <div>{listOfActivities}</div>: 
-                null}
+                {/* {this.state.user.cabins.activities? <div>{listOfActivities}</div>: 
+                null} */}
                 
             </div>
         );
