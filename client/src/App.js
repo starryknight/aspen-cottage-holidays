@@ -6,6 +6,7 @@ import LogInPage from './components/LogInPage'
 import UserPage from './components/UserPage'
 import CabinsPage from './components/CabinsPage'
 import ActivityPage from './components/ActivityPage'
+import NewCabinPage from './components/NewCabinPage'
 
 class App extends Component {
   state = {
@@ -40,8 +41,9 @@ class App extends Component {
             <Route exact path="/login" render={LogInPageWrapper} />
             <Route  exact path="/users/:userId" component={UserPage} />
             <Route  exact path="/users/:userId/cabins" component={CabinsPage} />
+            <Route  exact path="/users/:userId/cabins/new" component={NewCabinPage} />
             <Route  exact path="/users/:userId/cabins/:cabinId/activity" component={ActivityPage} />
-          
+          <Route  exact path="/users/:userId/cabins/:cabinId/activity" component={ActivityPage} />
           </Switch>
         </div>
       </Router>
