@@ -1,17 +1,23 @@
 let express = require('express')
 let router = express.Router({ mergeParams: true })
 const { UserModel, CabinModel } = require('../db/schema')
-
-/* Create new Idea listing. */
+//show
+router.get('/', function (req, res) {
+    CabinModel.find().then((cabins) => {
+      res.send(cabins)
+    })
+  })
+//new
 router.post('/new', function (req, res) {
 
-  UserModel.findById(req.params.userId).then((cabin) => {
     const newCabin = new CabinModel(req.body)
+
+  UserModel.findById(req.params.userId).then((user) => {
     user.cabins.push(newCabin)
-    return cabin.save()
+    return user.save()
   }).then(savedCabin => {
     res.send({
-      cabin: savedCabin
+      newCabin
     })
   })
 })
