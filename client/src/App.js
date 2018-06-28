@@ -4,6 +4,9 @@ import axios from 'axios'
 import HomePage from './components/HomePage'
 import LogInPage from './components/LogInPage'
 import UserPage from './components/UserPage'
+import CabinsPage from './components/CabinsPage'
+import ActivityPage from './components/ActivityPage'
+
 class App extends Component {
   state = {
     users: []
@@ -36,7 +39,9 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" render={LogInPageWrapper} />
             <Route  exact path="/users/:userId" component={UserPage} />
-
+            <Route  exact path="/users/:userId/cabins" component={CabinsPage} />
+            <Route  exact path="/users/:userId/cabins/activity" component={ActivityPage} />
+          
           </Switch>
         </div>
       </Router>

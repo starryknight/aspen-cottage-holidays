@@ -23,13 +23,23 @@ const fishing = new ActivityModel({
     smoking: "true",
     activities: [fishing]
   });
+  const elcasa = new CabinModel({
+    limit: "6",
+    address: "340 Major road",
+    city: "Riverbank",
+    state: "Georgia",
+    Availability: 07/13/2018,
+    picture: "https://i.pinimg.com/originals/a1/97/0b/a1970b0cb0e48c5f2654e9c44b08edc5.jpg",
+    smoking: "false",
+    activities: [fishing]
+  });
 
   const stanley = new UserModel({
     userName: "stanley",
     password: "kimani",
     Arrival: 07/12/2018,
     picture: "https://www.gannett-cdn.com/-mm-/acfef7d74e1e9805d997dc1aa942ae1f2b4e34b9/c=25-0-299-365&r=537&c=0-0-534-712/local/-/media/2016/02/10/USATODAY/USATODAY/635907076024739362-Kim.0001.jpg",
-    cabins: [regalMary]
+    cabins: [regalMary, elcasa]
   });
 
   UserModel.remove({})

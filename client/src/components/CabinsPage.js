@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-class ActivityPage extends Component {
+class CabinPage extends Component {
     state ={
         user:{}
     }
@@ -20,15 +20,15 @@ class ActivityPage extends Component {
     render() {
         const user = this.state.user ||{}
          if (user.cabins) {
-        var listOfActivities = user.cabins.activities.map((activity)=>{
-            return <li key={user._id}>{activity.name}</li>
+        var listOfCabins = user.cabins.map((cabin)=>{
+            return <li key={user._id}>{cabin.state}<img src={cabin.picture}/><a href={`cabins/activity`}><button>Activities</button></a></li>
             
         })
         }
         return (
             <div>
-                <p>Activity Page</p>
-                {this.state.user.cabins.activities? <div>{listOfActivities}</div>: 
+                <p>Cabin Page</p>
+                {this.state.user.cabins? <div>{listOfCabins}</div>: 
                 null}
                 
             </div>
@@ -36,4 +36,4 @@ class ActivityPage extends Component {
     }
 }
 
-export default ActivityPage;
+export default CabinPage;
