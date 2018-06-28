@@ -19,13 +19,11 @@ class UserPage extends Component {
     }
       
     render() {
-        console.log(this.state.user)
+      
         const user = this.state.user ||{}
         const userName = user.userName || ''
         const picture = user.picture || ''
 
-        console.log('user', user)
-        console.log('picture', picture)
         return (
             <div>
                 <img src={picture} alt="picture"/>

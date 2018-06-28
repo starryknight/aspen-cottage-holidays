@@ -1,14 +1,39 @@
 import React, { Component } from "react";
+import axios from 'axios'
 
 class NewCabinPage extends Component {
-  render() {
-    return (
-      //  
+  state = {
+    picture:"",
+      address: "",
+      city: "",
+      state: "",
+      smoking: "",
+      limit: ""
+  }
+  componentDidMount () {
+    if (this.props.match.params) {
+        const userId = this.props.match.params.userId
+        // console.log(userId)
+        axios
+            .get(`/api/users/${userId}`)
+            .then(res => {
+                this.setState({user: res.data})
+            })
+    }
+}
+handleSubmit{
+  //axios.post
+  //then set state
+  //res.data
+}
 
-      // 
-      
-      //
-   
+  render() {
+    const cabin = this.state.user ||{}
+    const userName = user.userName || ''
+    const picture = user.picture || ''
+
+    return (
+     
       <div>
         <form onSubmit={this.handleSubmit}>
         <input
