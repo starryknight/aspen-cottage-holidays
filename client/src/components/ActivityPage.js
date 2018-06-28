@@ -9,7 +9,7 @@ class ActivityPage extends Component {
     componentDidMount () {
         if (this.props.match.params) {
             const userId = this.props.match.params.userId
-            // console.log(userId)
+           
             axios
                 .get(`/api/users/${userId}`)
                 .then(res => {
@@ -21,7 +21,7 @@ class ActivityPage extends Component {
         const user = this.state.user ||{}
          if (user.cabins) {
         var listOfActivities = user.cabins.activities.map((activity)=>{
-            return <li key={user._id}>{activity.name}</li>     
+            return <li>{activity.name}</li>     
         })
         }
         return (

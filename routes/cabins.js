@@ -16,27 +16,17 @@ router.post('/', function (req, res) {
   })
 })
 
-/* Delete an Idea */
-// router.delete('/:id', (req, res) => {
-//   UserModel.findById(req.params.userId).then((user) => {
-//     user.cabins.id(req.params.id).remove()
-//     return user.save()
-//   }).then(savedUser => {
-//     res.send({
-//       user: savedUser
-//     })
-//   })
-// })
+
 router.patch('/:id', async (req, res) => {
   const user = await UserModel.findById(req.params.userId)
 
-  // get id of the idea
+ 
   const ideaId = req.params.id
 
-  // edit the idea from the id
-  const ideaToEdit = user.cabins.id(ideaId)
-  ideaToEdit.title = req.body.title
-  ideaToEdit.description = req.body.description
+
+  const cabinToEdit = user.cabins.id(ideaId)
+  cabinToEdit.title = req.body.title
+  cabinToEdit.description = req.body.description
 
   // save that to db
   const savedUser = await user.save()
