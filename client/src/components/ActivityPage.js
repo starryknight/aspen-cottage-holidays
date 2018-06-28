@@ -4,9 +4,13 @@ import axios from 'axios'
 
 class ActivityPage extends Component {
     state ={
-        user:{}
+        user:{
+            activities: []
+        }
     }
+    
     componentDidMount () {
+        
         if (this.props.match.params) {
             const userId = this.props.match.params.userId
            
@@ -14,7 +18,9 @@ class ActivityPage extends Component {
                 .get(`/api/users/${userId}`)
                 .then(res => {
                     this.setState({user: res.data})
+                    console.log('cabins:' , res.data.cabins)
                 })
+                
         }
     }
     render() {

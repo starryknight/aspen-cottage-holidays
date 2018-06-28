@@ -17,11 +17,12 @@ connection.on('error', (err) => {
 
 let usersRouter = require('./routes/users')
 let cabinRouter = require('./routes/cabins')
+let activityRouter = require ('./routes/activities')
+
 let app = express()
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
 
 app.use(express.static(__dirname + '/client/build/'))
 
@@ -31,4 +32,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', usersRouter)
 app.use('/api/users/:userId/cabin', cabinRouter)
+app.use('/api/users/:userId/cabin/:cabinId/activity', activityRouter)
+
 module.exports = app
