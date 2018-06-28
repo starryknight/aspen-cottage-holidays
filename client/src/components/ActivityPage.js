@@ -21,8 +21,7 @@ class ActivityPage extends Component {
         const user = this.state.user ||{}
          if (user.cabins) {
         var listOfActivities = user.cabins.activities.map((activity)=>{
-            return <li key={user._id}>{activity.name}</li>
-            
+            return <li key={user._id}>{activity.name}</li>     
         })
         }
         return (
