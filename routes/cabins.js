@@ -2,12 +2,20 @@ let express = require("express");
 let router = express.Router({ mergeParams: true });
 const { UserModel, CabinModel } = require("../db/schema");
 
-//show
+//show all
 router.get("/", function(req, res) {
   CabinModel.find().then(cabins => {
     res.send(cabins);
   });
 });
+//show one
+router.get("/:id", (req, res) => {
+    UserModel.findById(req.params.id)
+    .then(user => {
+        
+      })
+  });
+  
 //new
 router.post("/new", function(req, res) {
   const newCabin = new CabinModel(req.body);

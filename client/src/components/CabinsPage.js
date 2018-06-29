@@ -49,9 +49,11 @@ class CabinPage extends Component {
       var listOfCabins = user.cabins.map(cabin => {
         return (
           <CabinCover>
+            <Link to={`cabins/${cabin._id}`}>
             <div>
-              <Link to=><img src={cabin.picture} alt="look at cabin" /></Link>
-            </div>
+              <img src={cabin.picture} alt="look at cabin" />
+              </div>
+            </Link>
             {cabin.city} {cabin.state}
             <div>
               <button>
