@@ -1,6 +1,7 @@
 let express = require("express");
 let router = express.Router({ mergeParams: true });
 const { UserModel, CabinModel } = require("../db/schema");
+
 //show
 router.get("/", function(req, res) {
   CabinModel.find().then(cabins => {

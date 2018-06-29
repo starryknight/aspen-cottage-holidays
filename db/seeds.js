@@ -19,7 +19,7 @@ const fishing = new ActivityModel({
     city: "Demopolis",
     state: "Colorado",
     Availability: 07/12/2018,
-    picture: "https://i.pinimg.com/originals/a1/97/0b/a1970b0cb0e48c5f2654e9c44b08edc5.jpg",
+    picture: "https://cdn.liverez.com/5/11100/1/57087/250/1.jpg",
     smoking: "true",
     activities: [fishing]
   });
@@ -29,7 +29,7 @@ const fishing = new ActivityModel({
     city: "Riverbank",
     state: "Georgia",
     Availability: 07/13/2018,
-    picture: "https://i.pinimg.com/originals/a1/97/0b/a1970b0cb0e48c5f2654e9c44b08edc5.jpg",
+    picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Elwood_Cabin_Rio_Grande_Forest_Colorado_September_2013.JPG/250px-Elwood_Cabin_Rio_Grande_Forest_Colorado_September_2013.JPG",
     smoking: "false",
     activities: [fishing]
   });

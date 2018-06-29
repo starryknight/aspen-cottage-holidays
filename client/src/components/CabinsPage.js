@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from 'styled-components';
 
+
+const CabinCover = styled.div`
+border:solid;
+
+`
+const CabinContainer = styled.div`
+border:solid;
+display: flex;
+padding:10px;
+margin:10px;
+`
 class CabinPage extends Component {
   state = {
     user: {}
@@ -30,23 +42,30 @@ class CabinPage extends Component {
     if (user.cabins) {
       var listOfCabins = user.cabins.map(cabin => {
         return (
-          <li key={user._id}>
-            {cabin.state}
+            <CabinCover>
+            
             <img src={cabin.picture} alt="look at cabin" />
+            {cabin.state}
             <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
-            <br/>
+           
             <Link to={`cabins/${cabin._id}/edit`}>Update Cabin</Link>
             <button onClick={() => this.handleDelete(cabin._id)}>Delete</button>
-          </li>
+            </CabinCover>
       );
       });
     }
     return (
-      <div>
-        <p>Cabin Page</p>
-        {this.state.user.cabins ? <div>{listOfCabins}</div> : null}
-        <Link to={`cabins/new`}>New Cabin</Link>
+        <div>
         
+        
+        <p>Cabin Page</p>
+        <CabinContainer>
+        {this.state.user.cabins ? <div>{listOfCabins}</div> : null}
+        </CabinContainer>
+        <Link to={`cabins/new`}>New Cabin</Link>
+      
+     
+      
       </div>
     );
   }
