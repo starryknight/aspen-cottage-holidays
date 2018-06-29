@@ -39,7 +39,7 @@ https://trello.com/b/7s5pfW5u/aspen-cottage-holidays
 
 ```
 ## Version 2
-
+In my second version I would love to be able to make my activities page changeable. I would have loved to use a styling library preferrably material UI.
 
 
 ## References
