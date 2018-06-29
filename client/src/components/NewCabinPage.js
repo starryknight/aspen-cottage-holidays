@@ -3,12 +3,8 @@ import axios from 'axios'
 
 class NewCabinPage extends Component {
   state = {
-    picture:"",
-      address: "",
-      city: "",
-      state: "",
-      smoking: "",
-      limit: ""
+    user: {},
+    cabins: []
   }
   componentDidMount () {
     if (this.props.match.params) {
@@ -21,14 +17,20 @@ class NewCabinPage extends Component {
             })
     }
 }
-handleSubmit{
-  //axios.post
-  //then set state
-  //res.data
+handleSubmit = () => {
+  if (this.props.match.params) {
+  const userId = this.props.match.params.userId
+
+  axios.post(`/api/users/${userId}/cabins/new`, this.state)
+  .then((res) => {
+    this.props.history.push(`/users/${res.data._id}/cabins`)
+  })
+}
 }
 
+
   render() {
-    const cabin = this.state.user ||{}
+    const user = this.state.user ||{}
     const userName = user.userName || ''
     const picture = user.picture || ''
 
@@ -80,15 +82,6 @@ handleSubmit{
           </select>
           <br/>
           <input type="date"/>
-  
-
-
-          {/* <input
-            type="date"
-            name="password"
-            value={this.state.Arrival}
-            onChange={this.handleChange}
-          /> */}
 
           <button type="submit">Submit</button>
         </form>

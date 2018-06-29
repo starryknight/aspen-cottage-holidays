@@ -23,6 +23,16 @@ class CabinPage extends Component {
             this.setState({ user: res.data.user });
         });
     }
+    updateCabin = (cabinId) => {
+        const userId = this.props.match.params.userId
+        const cabinToSend = this.state.cabins.find(cabin => cabin._id === cabinId)
+        axios.patch(`/api/users/${userId}/cabins/${cabinId}`, cabinToSend).then((res) => {
+          this.setState({
+            user: res.data.user,
+            cabins: res.data.user.cabins
+          })
+        })
+      }
 }
   render(){
     const user = this.state.user || {};
