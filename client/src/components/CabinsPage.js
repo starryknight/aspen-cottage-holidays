@@ -23,16 +23,7 @@ class CabinPage extends Component {
             this.setState({ user: res.data.user });
         });
     }
-    updateCabin = (cabinId) => {
-        const userId = this.props.match.params.userId
-        const cabinToSend = this.state.cabins.find(cabin => cabin._id === cabinId)
-        axios.patch(`/api/users/${userId}/cabins/${cabinId}`, cabinToSend).then((res) => {
-          this.setState({
-            user: res.data.user,
-            cabins: res.data.user.cabins
-          })
-        })
-      }
+    
 }
   render(){
     const user = this.state.user || {};
@@ -43,6 +34,8 @@ class CabinPage extends Component {
             {cabin.state}
             <img src={cabin.picture} />
             <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
+            <br/>
+            <Link to={`cabins/${cabin._id}/edit`}>Update Cabin</Link>
             <button onClick={() => this.handleDelete(cabin._id)}>Delete</button>
           </li>
       );
@@ -53,6 +46,7 @@ class CabinPage extends Component {
         <p>Cabin Page</p>
         {this.state.user.cabins ? <div>{listOfCabins}</div> : null}
         <Link to={`cabins/new`}>New Cabin</Link>
+        
       </div>
     );
   }
