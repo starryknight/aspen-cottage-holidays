@@ -3,7 +3,9 @@ import axios from 'axios'
 
 class EditCabinPage extends Component {
   state = {
-    user: {}
+    user: {
+    },
+    cabins:[]
   };
   componentDidMount() {
     if (this.props.match.params) {
@@ -19,8 +21,9 @@ class EditCabinPage extends Component {
     e.preventDefault()
     if (this.props.match.params) {
     const userId = this.props.match.params.userId
-  
-    axios.post(`/api/users/${userId}/cabins/new`, this.state)
+    const cabinId = this.props.match.params.cabinId
+
+    axios.patch(`/api/users/${userId}/cabins/${cabinId}/edit`, this.state)
     .then((res) => {
       // this.setState({redirect: true})
       
@@ -53,7 +56,7 @@ class EditCabinPage extends Component {
           />
           <br />
           <input
-            placeholder="Door and street"
+            placeholder={this.state.address}
             type="text"
             name="address"
             value={this.state.address}
@@ -61,7 +64,7 @@ class EditCabinPage extends Component {
           />
           <br />
           <input
-            placeholder="City"
+            placeholder={this.state.password}
             type="text"
             name="city"
             value={this.state.password}

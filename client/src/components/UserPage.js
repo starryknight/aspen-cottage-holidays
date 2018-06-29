@@ -30,6 +30,7 @@ class UserPage extends Component {
                 <p>User Name: <span> {userName}</span>.</p>
                 {this.state.user.cabins? <p>{this.state.user.cabins.state}</p>: 
                 null}
+                  
                 <Link to={`${this.state.user._id}/cabins`}>Cabins Link</Link>
                 
             </div>

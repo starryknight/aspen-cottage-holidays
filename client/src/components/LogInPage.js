@@ -1,6 +1,26 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import styled from "styled-components";
+
+const NameSelector = styled.div`
+    background:orange;
+    width:140px;
+    height:50px;
+    display:block
+    Link{
+        display:none;
+        position: absolute;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow:5px 5px 5px silver;
+    padding:2px;
+    z-index:1;
+    }
+    NameSelector:hover {
+display:block;
+    }
+`;
 
 class LogInPage extends Component {
   state = {
@@ -35,13 +55,15 @@ class LogInPage extends Component {
       console.log(this.props)
       const listOfUsers = users.map((user) => {
         return (
-          <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link> 
+            
+            <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link>
+           
         )})
     return (
       <div>
         <h1>Please Select A User</h1>
-        
-        <h2>{listOfUsers}</h2>
+      
+        <NameSelector><span>Users</span><p>{listOfUsers}</p></NameSelector>
 
         <h3>Create a User</h3>
         <form onSubmit={this.handleSubmit}>

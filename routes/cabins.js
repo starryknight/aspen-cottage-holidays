@@ -23,7 +23,7 @@ router.post("/new", function(req, res) {
 });
 
 //update
-router.patch("/:id", function(req, res) {
+router.patch("/:id/edit", function(req, res) {
     const updatedCabin = req.body
     console.log(updatedCabin)
   const cabinId = req.params.id

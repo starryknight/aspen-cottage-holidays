@@ -77,26 +77,26 @@ handleSubmit = (e) => {
             onChange={this.handleChange}
           />
           <br />
-          <select name="state" value={this.state.state}>
+          <select name="state" value={this.state.state} onChange={this.handleChange}>
             <option value="georgia">Georgia</option>
             <option value="colorado">Colorado</option>
             <option value="arizona">Arizona</option>
             <option value="mexico">Mexico</option>
           </select>
 
-          <select name="smoking" value={this.state.smoking}>
+          <select name="smoking" value={this.state.smoking} onChange={this.handleChange}>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
 
-          <select name="limit" value={this.state.limit}>
+          <select name="limit" value={this.state.limit} onChange={this.handleChange}>
             <option value="2">Two</option>
             <option value="4">Four</option>
             <option value="6">Six</option>
             <option value="8">Eight</option>
           </select>
           <br/>
-          <input type="date" value={this.state.date}/>
+          <input type="date" value={this.state.date} onChange={this.handleChange}/>
 
           <button type="submit" >Submit</button>
         </form>

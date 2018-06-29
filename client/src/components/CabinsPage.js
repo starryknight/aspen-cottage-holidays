@@ -50,7 +50,7 @@ class CabinPage extends Component {
         return (
           <CabinCover>
             <div>
-              <img src={cabin.picture} alt="look at cabin" />
+              <Link to=><img src={cabin.picture} alt="look at cabin" /></Link>
             </div>
             {cabin.city} {cabin.state}
             <div>
