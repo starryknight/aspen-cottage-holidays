@@ -15,18 +15,20 @@ class EditCabinPage extends Component {
     }
   }
 
-  handleSubmit = cabinId => {
-    const userId = this.props.match.params.userId;
-    const cabinToSend = this.state.cabins.find(cabin => cabin._id === cabinId);
-    axios
-      .patch(`/api/users/${userId}/cabins/${cabinId}`, cabinToSend)
-      .then(res => {
-        this.setState({
-          user: res.data.user,
-          cabins: res.data.user.cabins
-        });
-      });
-  };
+  handleSubmit = (e) => {
+    e.preventDefault()
+    if (this.props.match.params) {
+    const userId = this.props.match.params.userId
+  
+    axios.post(`/api/users/${userId}/cabins/new`, this.state)
+    .then((res) => {
+      // this.setState({redirect: true})
+      
+      this.props.history.push(`/users/${userId}/cabins`)
+      
+    })
+  }
+  }
   handleChange = (event) => {
     const inputName = event.target.name
     const userInput = event.target.value

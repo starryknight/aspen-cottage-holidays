@@ -14,6 +14,7 @@ const CabinCover = styled.div`
 `;
 const CabinContainer = styled.div`
   display: flex;
+  flex-wrap:wrap;
   padding: 10px;
   margin: 10px;
 `;
