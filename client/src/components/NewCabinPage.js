@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class NewCabinPage extends Component {
   state = {
     user: {},
-    cabins: []
+    cabins: [],
+    // redirect:false
   }
   componentDidMount () {
     if (this.props.match.params) {
@@ -26,23 +28,27 @@ handleChange = (event) => {
   this.setState(newState)
 
 }
-handleSubmit = () => {
+handleSubmit = (e) => {
+  e.preventDefault()
   if (this.props.match.params) {
   const userId = this.props.match.params.userId
 
   axios.post(`/api/users/${userId}/cabins/new`, this.state)
   .then((res) => {
-    this.props.history.push(`/users/${res.data._id}/cabins`)
+    // this.setState({redirect: true})
+    
+    this.props.history.push(`/users/${userId}/cabins`)
+    
   })
 }
 }
 
 
   render() {
-    // const user = this.state.user ||{}
-    // const userName = user.userName || ''
-    // const picture = user.picture || ''
-
+    // if(this.state.redirect){
+    //   return <Redirect 
+    // }
+    
     return (
      
       <div>
@@ -90,9 +96,9 @@ handleSubmit = () => {
             <option value="8">Eight</option>
           </select>
           <br/>
-          <input type="date"/>
+          <input type="date" value={this.state.date}/>
 
-          <button type="submit">Submit</button>
+          <button type="submit" >Submit</button>
         </form>
       </div>
     );

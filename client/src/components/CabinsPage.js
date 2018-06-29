@@ -10,6 +10,7 @@ const CabinCover = styled.div`
   button {
     margin: 5px;
   }
+  
 `;
 const CabinContainer = styled.div`
   display: flex;

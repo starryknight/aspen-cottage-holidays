@@ -15,7 +15,7 @@ class EditCabinPage extends Component {
     }
   }
 
-  updateCabin = cabinId => {
+  handleSubmit = cabinId => {
     const userId = this.props.match.params.userId;
     const cabinToSend = this.state.cabins.find(cabin => cabin._id === cabinId);
     axios
@@ -27,55 +27,65 @@ class EditCabinPage extends Component {
         });
       });
   };
-
+  handleChange = (event) => {
+    const inputName = event.target.name
+    const userInput = event.target.value
+  
+    const newState = { ...this.state }
+    newState[ inputName ] = userInput
+    this.setState(newState)
+  
+  }
   render() {
+    
     return (
+     
       <div>
-        <form onSubmit={this.updateCabin}>
-          <input
+        <form onSubmit={this.handleSubmit}>
+        <input
             placeholder="picture"
             type="text"
             name="picture"
-            // value={this.state.picture}
-            // onChange={this.handleChange}
+            value={this.state.picture}
+            onChange={this.handleChange}
           />
           <br />
           <input
             placeholder="Door and street"
             type="text"
             name="address"
-            // value={}
-            // onChange={this.handleChange}
+            value={this.state.address}
+            onChange={this.handleChange}
           />
           <br />
           <input
             placeholder="City"
             type="text"
             name="city"
-            // value={this.state.password}
-            // onChange={this.handleChange}
+            value={this.state.password}
+            onChange={this.handleChange}
           />
           <br />
-          <select name="state" id="">
+          <select name="state" value={this.state.state}>
             <option value="georgia">Georgia</option>
             <option value="colorado">Colorado</option>
             <option value="arizona">Arizona</option>
             <option value="mexico">Mexico</option>
           </select>
 
-          <select name="smoking" id="">
+          <select name="smoking" value={this.state.smoking}>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
 
-          <select name="limit" id="">
+          <select name="limit" value={this.state.limit}>
             <option value="2">Two</option>
             <option value="4">Four</option>
             <option value="6">Six</option>
             <option value="8">Eight</option>
           </select>
-          <br />
-          <input type="date" />
+          <br/>
+          <input type="date"/>
 
           <button type="submit">Submit</button>
         </form>
