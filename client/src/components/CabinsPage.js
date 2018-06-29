@@ -5,11 +5,15 @@ import styled from 'styled-components';
 
 
 const CabinCover = styled.div`
-border:solid;
 
+margin:10px;
+border-radius:5px;
+box-shadow: 5px 5px 5px grey;
+button{
+    margin:5px;
+}
 `
 const CabinContainer = styled.div`
-border:solid;
 display: flex;
 padding:10px;
 margin:10px;
@@ -44,12 +48,14 @@ class CabinPage extends Component {
         return (
             <CabinCover>
             
-            <img src={cabin.picture} alt="look at cabin" />
+            <div><img src={cabin.picture} alt="look at cabin" /></div>
             {cabin.state}
-            <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
+            <div>
+            <button><Link to={`cabins/${cabin._id}/activity`}>Activities</Link></button>
            
-            <Link to={`cabins/${cabin._id}/edit`}>Update Cabin</Link>
+            <button><Link to={`cabins/${cabin._id}/edit`}>Update</Link></button>
             <button onClick={() => this.handleDelete(cabin._id)}>Delete</button>
+            </div>
             </CabinCover>
       );
       });
