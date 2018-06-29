@@ -40,12 +40,8 @@ class LogInPage extends Component {
     return (
       <div>
         <h1>Please Select A User</h1>
-        {/* {this.props.users.map((user) => {
-          return (
-            <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link> 
-          )
-        })} */}
-        {listOfUsers}
+        
+        <h2>{listOfUsers}</h2>
 
         <h3>Create a User</h3>
         <form onSubmit={this.handleSubmit}>
@@ -73,12 +69,12 @@ class LogInPage extends Component {
             onChange={this.handleChange}
           />
           <br/>
-          {/* <input
+          <input
             type="date"
-            name="password"
+            name="arrival"
             value={this.state.Arrival}
             onChange={this.handleChange}
-          /> */}
+          />
 
           <button type="submit">Submit</button>
         </form>
