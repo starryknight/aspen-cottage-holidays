@@ -26,9 +26,9 @@ class UserPage extends Component {
 
         return (
             <div>
-                <img src={picture} alt="picture"/>
+                <img src={picture} alt="this cabin"/>
                 <p>User Name: <span> {userName}</span>.</p>
-                {this.state.user.cabins? <p>{this.state.user.cabins[0].state}</p>: 
+                {this.state.user.cabins? <p>{this.state.user.cabins.state}</p>: 
                 null}
                 <Link to={`${this.state.user._id}/cabins`}>Cabins Link</Link>
                 

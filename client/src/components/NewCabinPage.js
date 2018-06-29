@@ -30,9 +30,9 @@ handleSubmit = () => {
 
 
   render() {
-    const user = this.state.user ||{}
-    const userName = user.userName || ''
-    const picture = user.picture || ''
+    // const user = this.state.user ||{}
+    // const userName = user.userName || ''
+    // const picture = user.picture || ''
 
     return (
      

@@ -32,7 +32,7 @@ class CabinPage extends Component {
         return (
           <li key={user._id}>
             {cabin.state}
-            <img src={cabin.picture} />
+            <img src={cabin.picture} alt="look at cabin" />
             <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
             <br/>
             <Link to={`cabins/${cabin._id}/edit`}>Update Cabin</Link>

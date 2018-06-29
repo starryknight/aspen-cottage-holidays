@@ -20,14 +20,7 @@ router.post("/new", function(req, res) {
       res.send(newCabin);
     });
 });
-// limit: Number,
-//   address: String,
-//   city: String,
-//   state: String,
-//   Availability: Date,
-//   picture: String,
-//   smoking: Boolean,
-//   activities: [ActivitySchema]
+
 //update
 router.patch("/:id", function(req, res) {
     const updatedCabin = req.body
@@ -37,6 +30,13 @@ router.patch("/:id", function(req, res) {
     .then(user => {
       const cabinToUpdate = user.cabins.id(cabinId);
       cabinToUpdate.limit = req.body.limit
+      cabinToUpdate.address = req.body.address
+      cabinToUpdate.city = req.body.city
+      cabinToUpdate.state = req.body.state
+      cabinToUpdate.Availability = req.body.Availability
+      cabinToUpdate.picture = req.body.picture
+      cabinToUpdate.smoking = req.body.smoking
+      
       return user.save();
     })
     .then(() => {
