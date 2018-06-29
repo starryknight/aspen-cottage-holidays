@@ -65,12 +65,10 @@ class CabinPage extends Component {
         
         
         <p>Cabin Page</p>
-        <CabinContainer>
-        {this.state.user.cabins ? <div>{listOfCabins}</div> : null}
-        </CabinContainer>
+        <div>
+        {this.state.user.cabins ? <CabinContainer>{listOfCabins}</CabinContainer> : null}
+        </div>
         <Link to={`cabins/new`}>New Cabin</Link>
-      
-     
       
       </div>
     );

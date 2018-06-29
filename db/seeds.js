@@ -38,7 +38,7 @@ const fishing = new ActivityModel({
     userName: "stanley",
     password: "kimani",
     Arrival: 07/12/2018,
-    picture: "https://www.gannett-cdn.com/-mm-/acfef7d74e1e9805d997dc1aa942ae1f2b4e34b9/c=25-0-299-365&r=537&c=0-0-534-712/local/-/media/2016/02/10/USATODAY/USATODAY/635907076024739362-Kim.0001.jpg",
+    picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Kim_Jong-un_at_the_Workers%27_Party_of_Korea_main_building.png/220px-Kim_Jong-un_at_the_Workers%27_Party_of_Korea_main_building.png",
     cabins: [regalMary, elcasa]
   });
 
