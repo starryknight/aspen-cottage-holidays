@@ -4,6 +4,11 @@ import axios from 'axios'
 
 class ActivityPage extends Component {
     state = {
+        user: {
+        },
+        cabins:[]
+      };
+    state = {
         user: {}
       };
       componentDidMount() {
@@ -19,6 +24,7 @@ class ActivityPage extends Component {
     render() {
         return (
             <div>
+                <div>{this.props.match.params.cabinId}</div>
                 <h1>Hello Activity page</h1>
             </div>
         );

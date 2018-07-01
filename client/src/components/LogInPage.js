@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import styled from "styled-components";
+import { Jumbotron, Navbar, NavDropdown, MenuItem, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 
 const NameSelector = styled.div`
     background:orange;
@@ -56,16 +57,19 @@ class LogInPage extends Component {
       const listOfUsers = users.map((user) => {
         return (
             
-            <Link key={user._id} to={`/users/${user._id}`}>{user.userName}</Link>
+            <Link key={user._id} to={`/users/${user._id}`}><option value="">{user.userName}</option></Link>
            
         )})
     return (
       <div>
-        <h1>Please Select A User</h1>
-      
-        <NameSelector><span>Users</span><p>{listOfUsers}</p></NameSelector>
+        <h2>Please Select Your User Name or sign-up</h2>
+        <NavDropdown eventKey={3} title="select User Name" id="basic-nav-dropdown">
+        <MenuItem eventKey={3.1}>{listOfUsers}</MenuItem>
+        
+      </NavDropdown>
 
-        <h3>Create a User</h3>
+        <h3>Create a New User</h3>
+       
         <form onSubmit={this.handleSubmit}>
           <input
             placeholder="User Name"
@@ -97,9 +101,11 @@ class LogInPage extends Component {
             value={this.state.Arrival}
             onChange={this.handleChange}
           />
-
+<br/>
           <button type="submit">Submit</button>
         </form>
+        
+
       </div>
     )
   }

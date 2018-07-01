@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Jumbotron, Navbar, NavDropdown, MenuItem, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 
 class UserPage extends Component {
     state ={
@@ -26,7 +27,7 @@ class UserPage extends Component {
 
         return (
             <div>
-                <img src={picture} alt="this cabin"/>
+                <Image src={picture} alt="this User" circle/>
                 <p>User Name: <span> {userName}</span>.</p>
                 {this.state.user.cabins? <p>{this.state.user.cabins.state}</p>: 
                 null}

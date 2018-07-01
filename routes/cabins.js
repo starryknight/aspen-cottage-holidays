@@ -8,12 +8,15 @@ router.get("/", function(req, res) {
     res.send(cabins);
   });
 });
-//show one
+
+//show one/// needs the helps
 router.get("/:id", (req, res) => {
-    UserModel.findById(req.params.id)
-    .then(user => {
-        
+    UserModel.findById(req.params.userId)
+    .then(users => {
+        const cabin = users.userId.cabins.id(req.params.id)
+        res.send(cabin)
       })
+      .catch(err => console.log((err)))
   });
   
 //new

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import { Jumbotron, Navbar, ControlLabel, FormGroup, FormControl,  NavDropdown, MenuItem, Grid, Row, Col, Image, Button } from 'react-bootstrap';
+
 
 class NewCabinPage extends Component {
   state = {
@@ -53,52 +55,77 @@ handleSubmit = (e) => {
      
       <div>
         <form onSubmit={this.handleSubmit}>
-        <input
+        
+  
+    
+   
+  
+
+  <FormGroup controlId="formHorizontalEmail">
+  <Col componentClass={ControlLabel} sm={2}>Picture:</Col>
+        <Col sm={10}>
+        <FormControl
             placeholder="picture"
             type="text"
             name="picture"
             value={this.state.picture}
             onChange={this.handleChange}
           />
+           </Col>
+          </FormGroup>
           <br />
-          <input
+          <br />
+          <Col componentClass={ControlLabel} sm={2}>Address:</Col>
+          <Col sm={10}>
+          <FormControl
             placeholder="Door and street"
             type="text"
             name="address"
             value={this.state.address}
             onChange={this.handleChange}
           />
+          </Col>
           <br />
-          <input
+          <br/>
+          <Col componentClass={ControlLabel} sm={2}>City:</Col>
+          <Col sm={10}>
+          <FormControl
             placeholder="City"
             type="text"
             name="city"
             value={this.state.password}
             onChange={this.handleChange}
           />
+           </Col>
           <br />
+          <br/>
+          <Col sm={12}>
+          <ControlLabel>State:</ControlLabel>{' '}
           <select name="state" value={this.state.state} onChange={this.handleChange}>
             <option value="georgia">Georgia</option>
             <option value="colorado">Colorado</option>
             <option value="arizona">Arizona</option>
             <option value="mexico">Mexico</option>
           </select>
-
+          <ControlLabel>Smoking Allowed?</ControlLabel>{'   '}
           <select name="smoking" value={this.state.smoking} onChange={this.handleChange}>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
-
+          
+          <ControlLabel>Maximum Occupancy:</ControlLabel>{'    '}
           <select name="limit" value={this.state.limit} onChange={this.handleChange}>
             <option value="2">Two</option>
             <option value="4">Four</option>
             <option value="6">Six</option>
             <option value="8">Eight</option>
           </select>
-          <br/>
+          <ControlLabel>Reservation Date:</ControlLabel>{'  '}
           <input type="date" value={this.state.date} onChange={this.handleChange}/>
-
-          <button type="submit" >Submit</button>
+          </Col>
+<br/>
+<br/>
+          <Button type="submit" >Submit</Button>
         </form>
       </div>
     );

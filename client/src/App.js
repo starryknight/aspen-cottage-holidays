@@ -8,6 +8,7 @@ import CabinsPage from './components/CabinsPage'
 import ActivityPage from './components/ActivityPage'
 import NewCabinPage from './components/NewCabinPage'
 import EditCabinPage from './components/EditCabinPage';
+import { Jumbotron, NavDropdown, Navbar, FormGroup, FormControl, MenuItem, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 
 class App extends Component {
   state = {
@@ -33,10 +34,31 @@ class App extends Component {
       
        <Router>
         <div>
-          <div>
-            <Link to="/">Home</Link>
-            <Link to="/login">Log-In</Link>
-          </div>
+        <Navbar>
+  <Navbar.Header>
+  <Navbar.Brand> 
+  <Image src="https://www.brandcrowd.com/gallery/brands/pictures/picture14299092496285.png"/>
+  </Navbar.Brand> 
+
+    <Navbar.Brand>  
+      <Link to="/">Home</Link>       
+    </Navbar.Brand>
+    <Navbar.Brand>
+    <Link to="/login">Log-In</Link>
+    </Navbar.Brand>
+    <Navbar.Toggle />
+  </Navbar.Header>
+  <Navbar.Collapse>
+    <Navbar.Form pullRight>
+      <FormGroup>
+        <FormControl type="text" placeholder="Search" />
+      </FormGroup>{' '}
+      <Button type="submit">Submit</Button>
+    </Navbar.Form>
+  </Navbar.Collapse>
+</Navbar>
+          
+          
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" render={LogInPageWrapper} />
@@ -49,6 +71,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+      
       </div>
     );
   }

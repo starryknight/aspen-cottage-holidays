@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import {
+  Jumbotron,
+  NavDropdown,
+  ButtonToolbar,
+  MenuItem,
+  Grid,
+  Row,
+  Col,
+  Image,
+  Button
+} from "react-bootstrap";
 
 const CabinCover = styled.div`
   margin: 10px;
@@ -10,11 +21,10 @@ const CabinCover = styled.div`
   button {
     margin: 5px;
   }
-  
 `;
 const CabinContainer = styled.div`
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   padding: 10px;
   margin: 10px;
 `;
@@ -25,7 +35,6 @@ class CabinPage extends Component {
   componentDidMount() {
     if (this.props.match.params) {
       const userId = this.props.match.params.userId;
-      // console.log(userId)
       axios.get(`/api/users/${userId}`).then(res => {
         this.setState({ user: res.data });
       });
@@ -35,11 +44,10 @@ class CabinPage extends Component {
     if (this.props.match.params) {
       const userId = this.props.match.params.userId;
       console.log(cabinId);
-      axios.delete(`/api/users/${userId}/cabins/${cabinId}`)
-      .then(res => {
+      axios.delete(`/api/users/${userId}/cabins/${cabinId}`).then(res => {
         this.setState({ user: res.data.user });
 
-            this.props.history.push(`/users/${userId}/cabins`)
+        this.props.history.push(`/users/${userId}/cabins`);
       });
     }
   };
@@ -50,27 +58,29 @@ class CabinPage extends Component {
         return (
           <CabinCover>
             <Link to={`cabins/${cabin._id}`}>
-            <div>
-              <img src={cabin.picture} alt="look at cabin" />
+              <div>
+                <img src={cabin.picture} alt="look at cabin" />
               </div>
             </Link>
             {cabin.city} {cabin.state}
-            <div>
-              <button>
+            <ButtonToolbar>
+              <Button>
                 <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
-              </button>
-
-              <button>
+              </Button>
+              <Button>
                 <Link to={`cabins/${cabin._id}/edit`}>Update</Link>
-              </button>
-              <button onClick={() => this.handleDelete(cabin._id)}>
+              </Button>
+              <Button
+                bsStyle="danger"
+                onClick={() => this.handleDelete(cabin._id)}
+              >
                 Delete
-              </button>
-            </div>
+              </Button>
+            </ButtonToolbar>
           </CabinCover>
         );
       });
-      console.log(user.cabins)
+      console.log(user.cabins);
     }
     return (
       <div>
