@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {
-  Jumbotron,
-  Navbar,
+ 
   ControlLabel,
   FormGroup,
   FormControl,
-  NavDropdown,
-  MenuItem,
-  Grid,
-  Row,
+ 
   Col,
-  Image,
+  
   Button
 } from "react-bootstrap";
 

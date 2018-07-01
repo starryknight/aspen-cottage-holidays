@@ -1,12 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
 import {
   Jumbotron,
-  Navbar,
-  ControlLabel,
-  FormGroup,
-  FormControl,
   NavDropdown,
+  ButtonToolbar,
   MenuItem,
   Grid,
   Row,
@@ -14,45 +13,65 @@ import {
   Image,
   Button
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
+
 
 class ActivityPage extends Component {
-  state = {
-    user: {},
-    cabins: []
-  };
   state = {
     user: {}
   };
   componentDidMount() {
     if (this.props.match.params) {
       const userId = this.props.match.params.userId;
-      // console.log(userId)
       axios.get(`/api/users/${userId}`).then(res => {
         this.setState({ user: res.data });
       });
     }
   }
+  handleDelete = cabinId => {
+    if (this.props.match.params) {
+      const userId = this.props.match.params.userId;
+      console.log(cabinId);
+      axios.delete(`/api/users/${userId}/cabins/${cabinId}`).then(res => {
+        this.setState({ user: res.data.user });
 
+        this.props.history.push(`/users/${userId}/cabins`);
+      });
+    }
+  };
   render() {
+    const user = this.state.user || {};
+    if (user.cabins) {
+      var listOfCabins = user.cabins.map(cabin => {
+        return (
+          <div>
+           
+                <img src={cabin.picture} alt="look at cabin" />
+            
+            {cabin.city} {cabin.state}
+            <ButtonToolbar>
+             
+              <Button
+                bsStyle="danger"
+                onClick={() => this.handleDelete(cabin._id)}
+              >
+                Delete
+              </Button>
+            </ButtonToolbar>
+          </div>
+        );
+      });
+      
+    }
     return (
       <div>
-    
-        <h1>Activity Page</h1>
+        <h2>Cabin Page</h2>
         <div>
-          <Image src="" alt="this User" circle />
-          <p>
-            User Name: <span> </span>.
-          </p>
           {this.state.user.cabins ? (
-            <p>{this.state.user.cabins.state}</p>
+            <div>{listOfCabins}</div>
           ) : null}
-          <Button bsStyle="danger" onClick={() => this.handleDelete}>
-            Delete
-          </Button>
-          <Link to={`${this.state.user._id}`}>Cabins Link</Link>
-                
         </div>
+        <Link to={`/users/id`}>Back Cabin</Link>
       </div>
     );
   }

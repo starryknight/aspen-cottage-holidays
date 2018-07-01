@@ -80,7 +80,7 @@ class CabinPage extends Component {
           </CabinCover>
         );
       });
-      console.log(user.cabins);
+      
     }
     return (
       <div>

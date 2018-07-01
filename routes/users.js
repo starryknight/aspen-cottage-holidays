@@ -21,14 +21,23 @@ router.post('/', (req, res) => {
     res.send(user)
   })
 })
-//delete
+delete
 router.delete('/:id',  function (req, res) {
    
   UserModel.findByIdAndRemove(req.params.userId)
   
-  .then((user) => {
+  .then((users) => {
 res.send('deleted')
+
   })
     
 })
+// router.delete('/:id', async (req, res) => {
+//   const user = await UserModel.findById(req.params.userId)
+//   user.id(req.params.id).remove()
+//   const savedUsers = await users.save()
+//   res.send({
+//     users: savedUsers
+//   })
+// })
 module.exports = router
