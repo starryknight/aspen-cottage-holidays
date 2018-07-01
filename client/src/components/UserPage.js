@@ -22,9 +22,7 @@ class UserPage extends Component {
         if (this.props.match.params) {
           const userId = this.props.match.params.userId;
           axios.delete(`/api/users/${userId}`).then(res => {
-            this.setState({ user: res.data.user });
-    
-            this.props.history.push(`/users`);
+            this.props.history.push(`/login`);
           });
         }
       };

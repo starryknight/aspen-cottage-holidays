@@ -24,17 +24,11 @@ router.post('/', (req, res) => {
 //delete
 router.delete('/:id',  function (req, res) {
    
-  UserModel.findById(req.params.userId)
+  UserModel.findByIdAndRemove(req.params.userId)
   
   .then((user) => {
-user.id(req.params.id).remove()
-      return user.save()
+res.send('deleted')
   })
-      .then((savedUser) => {
-          res.send({user: savedUser})
-              
-      })
-      .catch(err => console.log((err)))
+    
 })
-
 module.exports = router
