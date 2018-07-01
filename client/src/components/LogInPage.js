@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import styled from "styled-components";
-import { Jumbotron, Navbar, NavDropdown, MenuItem, Grid, Row, Col, Image, Button } from 'react-bootstrap';
+import { Jumbotron, FormControl, Navbar, NavDropdown, MenuItem, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 
 const NameSelector = styled.div`
     background:orange;
@@ -63,7 +63,7 @@ class LogInPage extends Component {
     return (
       <div>
         <h2>Please Select Your User Name or sign-up</h2>
-        <NavDropdown eventKey={3} title="select User Name" id="basic-nav-dropdown">
+        <NavDropdown eventKey={3} title="Select User Name" id="basic-nav-dropdown">
         <MenuItem eventKey={3.1}>{listOfUsers}</MenuItem>
         
       </NavDropdown>
@@ -71,30 +71,40 @@ class LogInPage extends Component {
         <h3>Create a New User</h3>
        
         <form onSubmit={this.handleSubmit}>
-          <input
+        <Col sm={3}>
+          <FormControl
             placeholder="User Name"
             type="text"
             name="userName"
             value={this.state.userName}
             onChange={this.handleChange}
           />
+          </Col>
            <br/>
-          <input
+           <br/>
+           <Col sm={3}>
+          <FormControl
             placeholder="Password"
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
           />
+          </Col>
            <br/>
-          <input
+           <br/>
+           <Col sm={3}>
+          <FormControl
             placeholder="picture"
             type="text"
             name="picture"
             value={this.state.picture}
             onChange={this.handleChange}
           />
+          </Col>
           <br/>
+          <br/>
+          <label htmlFor="date">Arrival Date:</label>
           <input
             type="date"
             name="arrival"
@@ -102,7 +112,8 @@ class LogInPage extends Component {
             onChange={this.handleChange}
           />
 <br/>
-          <button type="submit">Submit</button>
+<br/>
+          <Button type="submit">Submit</Button>
         </form>
         
 

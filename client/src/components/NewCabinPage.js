@@ -55,12 +55,7 @@ handleSubmit = (e) => {
      
       <div>
         <form onSubmit={this.handleSubmit}>
-        
-  
-    
-   
-  
-
+      
   <FormGroup controlId="formHorizontalEmail">
   <Col componentClass={ControlLabel} sm={2}>Picture:</Col>
         <Col sm={10}>

@@ -84,7 +84,7 @@ class CabinPage extends Component {
     }
     return (
       <div>
-        <p>Cabin Page</p>
+        <h2>Cabin Page</h2>
         <div>
           {this.state.user.cabins ? (
             <CabinContainer>{listOfCabins}</CabinContainer>

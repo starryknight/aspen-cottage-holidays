@@ -18,6 +18,16 @@ class UserPage extends Component {
                 })
         }
     }
+    handleDelete = userId => {
+        if (this.props.match.params) {
+          const userId = this.props.match.params.userId;
+          axios.delete(`/api/users/${userId}`).then(res => {
+            this.setState({ user: res.data.user });
+    
+            this.props.history.push(`/users`);
+          });
+        }
+      };
       
     render() {
       
@@ -31,7 +41,12 @@ class UserPage extends Component {
                 <p>User Name: <span> {userName}</span>.</p>
                 {this.state.user.cabins? <p>{this.state.user.cabins.state}</p>: 
                 null}
-                  
+                  <Button
+                bsStyle="danger"
+                onClick={() => this.handleDelete(user._id)}
+              >
+                Delete
+              </Button>
                 <Link to={`${this.state.user._id}/cabins`}>Cabins Link</Link>
                 
             </div>
