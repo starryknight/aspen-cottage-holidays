@@ -1,24 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styled from "styled-components";
 import {
-  Jumbotron,
-  NavDropdown,
   ButtonToolbar,
-  MenuItem,
-  Grid,
-  Row,
-  Col,
-  Image,
   Button
 } from "react-bootstrap";
 
-
-
 class ActivityPage extends Component {
   state = {
-    user: {}
+    user: {},
+    cabins:[],
+    activities: []
   };
   componentDidMount() {
     if (this.props.match.params) {
@@ -32,32 +24,29 @@ class ActivityPage extends Component {
     if (this.props.match.params) {
       const userId = this.props.match.params.userId;
       console.log(cabinId);
-      axios.delete(`/api/users/${userId}/cabins/${cabinId}`).then(res => {
+      axios.delete(`/api/users/${userId}/cabins/${cabinId}/activities`).then(res => {
         this.setState({ user: res.data.user });
 
-        this.props.history.push(`/users/${userId}/cabins`);
+        this.props.history.push(`/users/${userId}/cabins/${cabinId}/activities`);
       });
     }
   };
   render() {
     const user = this.state.user || {};
+    const cabins = this.state.user || {};
+    const activity = this.state.user || {};
     if (user.cabins) {
-      var listOfCabins = user.cabins.map(cabin => {
+      var listOfActivities = user.cabins.map(activity => {
         return (
           <div>
-           
-                <img src={cabin.picture} alt="look at cabin" />
-            
-            {cabin.city} {cabin.state}
-            <ButtonToolbar>
-             
+              <p>Activities:{this.state.user.activities}</p>
               <Button
                 bsStyle="danger"
-                onClick={() => this.handleDelete(cabin._id)}
+                onClick={() => this.handleDelete(activity._id)}
               >
-                Delete
+                Delete Activity
               </Button>
-            </ButtonToolbar>
+           
           </div>
         );
       });
@@ -65,13 +54,13 @@ class ActivityPage extends Component {
     }
     return (
       <div>
-        <h2>Cabin Page</h2>
+        <h2>Activity Page</h2>
         <div>
-          {this.state.user.cabins ? (
-            <div>{listOfCabins}</div>
+          {this.state.user.activities ? (
+            <div>{listOfActivities}</div>
           ) : null}
         </div>
-        <Link to={`/users/id`}>Back Cabin</Link>
+        <Link to={`/`}>Back To Home</Link>
       </div>
     );
   }

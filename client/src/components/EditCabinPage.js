@@ -59,7 +59,7 @@ class EditCabinPage extends Component {
             </Col>
             <Col sm={8}>
               <FormControl
-                placeholder="picture"
+                placeholder={this.state.picture}
                 type="text"
                 name="picture"
                 value={this.state.picture}

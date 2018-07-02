@@ -37,7 +37,9 @@ class UserPage extends Component {
             <div>
                 <Image src={picture} alt="this User" circle/>
                 <p>User Name: <span> {userName}</span>.</p>
-                {this.state.user.cabins? <p>{this.state.user.cabins.state}</p>: 
+                {this.state.user.cabins? <p>{this.state.user.cabins.state}<spa>{this.state.user.cabins.date}</spa></p>
+                
+                : 
                 null}
                   <Button
                 bsStyle="danger"
