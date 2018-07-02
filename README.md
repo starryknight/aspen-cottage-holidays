@@ -8,7 +8,7 @@ The application was a fun build. With this application there were alot of differ
 A holiday goer is able to add the holdicay home they want to stay at and select from some activities within the viscinity of the cabins. 
 
 ## Snapshot
-
+![image](https://user-images.githubusercontent.com/35582310/42146632-f847150c-7d96-11e8-8ab2-6f95bdef958d.png)
 
 ## Heroku Site Link
 The live website for the project is available via the following link:-
