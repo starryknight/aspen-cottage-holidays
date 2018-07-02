@@ -19,7 +19,7 @@ class EditCabinPage extends Component {
       const cabinId = this.props.match.params.cabinId;
       // console.log(userId)
       axios.get(`/api/users/${userId}/cabins/${cabinId}`).then(res => {
-        this.setState({ cabin: res.data });
+        this.setState(res.data);
       });
     }
   }

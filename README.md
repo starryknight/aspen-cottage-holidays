@@ -30,13 +30,13 @@ https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
 ```
 
 ## Technologies
-
-React Bootstrap
-```
-Express
-```
-React
-
+###Front End
+*React Bootstrap
+*React
+*Styled-componentes
+###Back End
+*Express
+*Mongo-DB
 ## Trello
 
 Please find the user stories via the following link:-

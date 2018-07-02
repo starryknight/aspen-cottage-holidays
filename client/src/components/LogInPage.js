@@ -114,7 +114,7 @@ class LogInPage extends Component {
           </Col>
           <br />
           <br />
-          <label htmlFor="date">Arrival Date:</label>
+          <label htmlFor="Arrival">Arrival Date:</label>
           <input
             type="date"
             name="arrival"
