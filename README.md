@@ -2,10 +2,12 @@
 This is a web appplication that allows holiday goers to plan their Aspen holidays. 
 
 ## The Process
-The application was a fun build. With this application there were alot of different technologies that needed to be used to achieve the target product. There was alot of co-operation with fellow and reference to react documentations was key to completion.
+The application was a fun build. With this application there were alot of different technologies that needed to be used to achieve the target product. There was alot of co-operation with fellow developers and reference to react documentations was key to completion. On the last day I had challenges with value from options being inherited by a select tag value which affected the application's ability to use select tags effectively. 
 
 ## Overview
 A holiday goer is able to add the holdicay home they want to stay at and select from some activities within the viscinity of the cabins. 
+
+## Snapshot
 
 
 ## Heroku Site Link
@@ -28,8 +30,12 @@ https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
 ```
 
 ## Technologies
-React
+
+React Bootstrap
+```
 Express
+```
+React
 
 ## Trello
 
@@ -39,7 +45,7 @@ https://trello.com/b/7s5pfW5u/aspen-cottage-holidays
 
 ```
 ## Version 2
-In my second version I would love to be able to make my activities page changeable. I would have loved to use a styling library preferrably material UI.
+In my second version I would love to be able to make my activities page create, read update and delete. An actual log in would be an important addition. 
 
 
 ## References
