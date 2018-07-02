@@ -11,13 +11,18 @@ router.get("/", function(req, res) {
 
 //show one/// needs the helps
 router.get("/:id", (req, res) => {
+    console.log("id", req.params.userId)
   UserModel.findById(req.params.userId)
-    .then(users => {
-      const cabin = users.userId.cabins.id(req.params.id);
+    .then(user => {
+      const cabin = user.cabins.id(req.params.id);
+      console.log("users not seen",user)
       res.send(cabin);
     })
     .catch(err => console.log(err));
 });
+
+
+
 
 //new
 router.post("/new", function(req, res) {
@@ -36,11 +41,13 @@ router.post("/new", function(req, res) {
 //update
 router.patch("/:id/edit", function(req, res) {
   const updatedCabin = req.body;
-  console.log(updatedCabin);
+  console.log("pdate" , updatedCabin);
   const cabinId = req.params.id;
+  
   UserModel.findById(req.params.userId)
     .then(user => {
       const cabinToUpdate = user.cabins.id(cabinId);
+      console.log("cabin", cabinToUpdate)
       cabinToUpdate.limit = req.body.limit;
       cabinToUpdate.address = req.body.address;
       cabinToUpdate.city = req.body.city;

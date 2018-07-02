@@ -11,14 +11,15 @@ import {
 class EditCabinPage extends Component {
   state = {
     user: {},
-    cabins: []
+    cabin: {}
   };
   componentDidMount() {
     if (this.props.match.params) {
       const userId = this.props.match.params.userId;
+      const cabinId = this.props.match.params.cabinId;
       // console.log(userId)
-      axios.get(`/api/users/${userId}`).then(res => {
-        this.setState({ user: res.data });
+      axios.get(`/api/users/${userId}/cabins/${cabinId}`).then(res => {
+        this.setState({ cabin: res.data });
       });
     }
   }
@@ -83,11 +84,12 @@ class EditCabinPage extends Component {
           </Col>
           <Col sm={8}>
             <FormControl
-              placeholder={this.state.password}
+              placeholder={this.state.city}
               type="text"
               name="city"
-              value={this.state.password}
               onChange={this.handleChange}
+              value={this.state.city}
+              
             />
           </Col>
           <br />
