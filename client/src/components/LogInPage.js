@@ -37,7 +37,6 @@ class LogInPage extends Component {
   state = {
     userName: "",
     password: "",
-    //   Arrival:null,
     picture: ""
   };
 
@@ -56,8 +55,6 @@ class LogInPage extends Component {
       console.log(res.data);
       this.props.history.push(`/users/${res.data._id}`);
     });
-
-    // make api call
   };
 
   render() {

@@ -9,7 +9,6 @@ router.get("/", function(req, res) {
   });
 });
 
-  
 //new
 router.post("/new", function(req, res) {
   const newActivity = new ActivityModel(req.body);
@@ -26,20 +25,20 @@ router.post("/new", function(req, res) {
 
 //update
 router.patch("/:id/edit", function(req, res) {
-    const updatedCabin = req.body
-    console.log(updatedCabin)
-  const cabinId = req.params.id
+  const updatedCabin = req.body;
+  console.log(updatedCabin);
+  const cabinId = req.params.id;
   UserModel.findById(req.params.userId)
     .then(user => {
       const cabinToUpdate = user.cabins.id(cabinId);
-      cabinToUpdate.limit = req.body.limit
-      cabinToUpdate.address = req.body.address
-      cabinToUpdate.city = req.body.city
-      cabinToUpdate.state = req.body.state
-      cabinToUpdate.Availability = req.body.Availability
-      cabinToUpdate.picture = req.body.picture
-      cabinToUpdate.smoking = req.body.smoking
-      
+      cabinToUpdate.limit = req.body.limit;
+      cabinToUpdate.address = req.body.address;
+      cabinToUpdate.city = req.body.city;
+      cabinToUpdate.state = req.body.state;
+      cabinToUpdate.Availability = req.body.Availability;
+      cabinToUpdate.picture = req.body.picture;
+      cabinToUpdate.smoking = req.body.smoking;
+
       return user.save();
     })
     .then(() => {
@@ -47,19 +46,17 @@ router.patch("/:id/edit", function(req, res) {
     });
 });
 //delete
-router.delete('/:id',  function (req, res) {
-   
-    UserModel.findById(req.params.userId)
-    
-    .then((user) => {
-  user.cabins.id(req.params.id).remove()
-        return user.save()
+router.delete("/:id", function(req, res) {
+  UserModel.findById(req.params.userId)
+
+    .then(user => {
+      user.cabins.id(req.params.id).remove();
+      return user.save();
     })
-        .then((savedUser) => {
-            res.send({user: savedUser})
-                
-        })
-        .catch(err => console.log((err)))
-})
+    .then(savedUser => {
+      res.send({ user: savedUser });
+    })
+    .catch(err => console.log(err));
+});
 
 module.exports = router;

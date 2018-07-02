@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {
- 
   ControlLabel,
   FormGroup,
   FormControl,
- 
   Col,
-  
   Button
 } from "react-bootstrap";
 
@@ -35,8 +32,6 @@ class EditCabinPage extends Component {
       axios
         .patch(`/api/users/${userId}/cabins/${cabinId}/edit`, this.state)
         .then(res => {
-          // this.setState({redirect: true})
-
           this.props.history.push(`/users/${userId}/cabins`);
         });
     }
@@ -99,21 +94,33 @@ class EditCabinPage extends Component {
           <br />
           <Col sm={10}>
             <ControlLabel>State:</ControlLabel>{" "}
-            <select name="state" value={this.state.state}>
-              <option value="georgia">Georgia</option>
-              <option value="colorado">Colorado</option>
-              <option value="arizona">Arizona</option>
-              <option value="mexico">Mexico</option>
+            <select
+              name="state"
+              onChange={this.handleChange}
+              value={this.state.state}
+            >
+              <option value="Georgia">Georgia</option>
+              <option value="Colorado">Colorado</option>
+              <option value="Arizona">Arizona</option>
+              <option value="New Mexico">New Mexico</option>
             </select>
             <ControlLabel>Smoking Allowed?</ControlLabel>
             {"   "}
-            <select name="smoking" value={this.state.smoking}>
+            <select
+              name="smoking"
+              onChange={this.handleChange}
+              value={this.state.smoking}
+            >
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
             <ControlLabel>Maximum Occupancy:</ControlLabel>
             {"    "}
-            <select name="limit" value={this.state.limit}>
+            <select
+              name="limit"
+              onChange={this.handleChange}
+              value={this.state.limit}
+            >
               <option value="2">Two</option>
               <option value="4">Four</option>
               <option value="6">Six</option>
@@ -121,7 +128,11 @@ class EditCabinPage extends Component {
             </select>
             <ControlLabel>Reservation Date:</ControlLabel>
             {"  "}
-            <input type="date" />
+            <input
+              type="date"
+              onChange={this.handleChange}
+              value={this.state.date}
+            />
           </Col>
           <br />
           <Button type="submit">Submit</Button>

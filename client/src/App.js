@@ -9,15 +9,9 @@ import ActivityPage from "./components/ActivityPage";
 import NewCabinPage from "./components/NewCabinPage";
 import EditCabinPage from "./components/EditCabinPage";
 import {
-  Jumbotron,
-  NavDropdown,
   Navbar,
   FormGroup,
   FormControl,
-  MenuItem,
-  Grid,
-  Row,
-  Col,
   Image,
   Button
 } from "react-bootstrap";
@@ -53,7 +47,6 @@ class App extends Component {
                 <Navbar.Brand>
                   <Image src="https://www.brandcrowd.com/gallery/brands/pictures/picture14299092496285.png" />
                 </Navbar.Brand>
-
                 <Navbar.Brand>
                   <Link to="/">Home</Link>
                 </Navbar.Brand>
@@ -88,7 +81,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path="/users/:userId/cabins/:cabinId/activity"
+                path="/users/:userId/cabins/:cabinId/activities"
                 component={ActivityPage}
               />
               <Route

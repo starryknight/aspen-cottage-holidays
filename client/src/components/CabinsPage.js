@@ -65,7 +65,7 @@ class CabinPage extends Component {
             {cabin.city} {cabin.state}
             <ButtonToolbar>
               <Button>
-                <Link to={`cabins/${cabin._id}/activity`}>Activities</Link>
+                <Link to={`cabins/${cabin._id}/activities`}>Activities</Link>
               </Button>
               <Button>
                 <Link to={`cabins/${cabin._id}/edit`}>Update</Link>
@@ -79,8 +79,7 @@ class CabinPage extends Component {
             </ButtonToolbar>
           </CabinCover>
         );
-      });
-      
+      });      
     }
     return (
       <div>
