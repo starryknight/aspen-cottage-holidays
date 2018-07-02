@@ -29,14 +29,7 @@ https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
 
 ```
 
-## Technologies
-###Front End
-*React Bootstrap
-*React
-*Styled-componentes
-###Back End
-*Express
-*Mongo-DB
+
 ## Trello
 
 Please find the user stories via the following link:-
@@ -47,7 +40,15 @@ https://trello.com/b/7s5pfW5u/aspen-cottage-holidays
 ## Version 2
 In my second version I would love to be able to make my activities page create, read update and delete. An actual log in would be an important addition. 
 
+## Technologies
+###Front End
 
+..*React Bootstrap
+..*React
+..*Styled-componentes
+###Back End
+..*Express
+..*Mongo-DB
 ## References
 
 https://dashboard.heroku.com/
