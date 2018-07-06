@@ -28,6 +28,7 @@ The ERD for the project is available via the following link:-
 https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
 
 ```
+![image](https://user-images.githubusercontent.com/35582310/42388408-6a16eb06-8113-11e8-9474-1c2f74768980.png)
 
 
 ## Trello
